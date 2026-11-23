@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Cinematic bat cave: a hooded developer at three glowing screens under a neon bat, a hall of hackathon trophies, a waterfall, a suit in a glass case, a giant penny, a robot T-rex and a car on a turntable"/>
+  <img src="assets/batcave.gif" width="100%" alt="A dark, cinematic bat cave: a silhouette working at glowing monitors under industrial work lights"/>
 </p>
 
 <h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
