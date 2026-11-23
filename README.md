@@ -123,12 +123,14 @@ Systemic-risk simulation for financial networks.
 
 </details>
 
-## 🕸️ Night patrol
-
-Every building is one day of my GitHub activity. Busier days rise higher and light up more windows, and a friendly neighbourhood web-slinger swings across the rooftops. Redrawn every 12 hours.
+## 🕹️ Night patrol
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/skyline.svg" width="100%" alt="Contribution graph drawn as a 3D night skyline"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph-dark.svg"/>
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph.svg"/>
+    <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph-dark.svg" width="100%" alt="Pac-Man eating my contribution graph"/>
+  </picture>
 </p>
 
 <p align="center">
