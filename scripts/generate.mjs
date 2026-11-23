@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Draws the two animated profile images from your GitHub contribution calendar:
-//   dist/batcave.svg  - pixel-art bat cave header (scripts/batcave.mjs)
+//   dist/batcave.svg  - bat cave header: cinematic (scripts/cinematic.mjs) or, with
+//                       "style": "pixel" in theme.config.json, pixel art (scripts/batcave.mjs)
 //   dist/skyline.svg  - 3D night skyline with a web-slinger (scripts/skyline.mjs)
 // No dependencies. Needs Node 18+.
 //   GITHUB_TOKEN set  -> real data for GITHUB_USER (or config.username)
@@ -11,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { rng } from './lib.mjs';
 import { skyline } from './skyline.mjs';
 import { batcave } from './batcave.mjs';
+import { cinematicCave } from './cinematic.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = JSON.parse(readFileSync(join(ROOT, 'theme.config.json'), 'utf8'));
@@ -55,5 +57,6 @@ async function getCalendar() {
 const cal = await getCalendar();
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'skyline.svg'), skyline(cal, USER));
-writeFileSync(join(OUT, 'batcave.svg'), batcave(cal, cfg, USER));
+const cave = cfg.style === 'pixel' ? batcave : cinematicCave;
+writeFileSync(join(OUT, 'batcave.svg'), cave(cal, cfg, USER));
 console.log(`${DEMO ? 'demo' : USER}: ${cal.total} contributions, ${cal.weeks.length} weeks -> ${OUT}`);

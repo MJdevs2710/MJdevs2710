@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Pixel-art bat cave: a hooded developer at three glowing monitors, a neon bat sign, a shelf of hackathon trophies, a car on a turntable, a robot T-rex, a giant penny and a case-files board"/>
+  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Cinematic bat cave: a hooded developer at three glowing screens under a neon bat, a hall of hackathon trophies, a waterfall, a suit in a glass case, a giant penny, a robot T-rex and a car on a turntable"/>
 </p>
 
 <h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
@@ -140,7 +140,7 @@ Every building is one day of my GitHub activity. Busier days rise higher and lig
 <br/>
 
 1. Click **Use this template** at the top of [this repo](https://github.com/MJdevs2710/MJdevs2710) and name your new repo **exactly your GitHub username**. GitHub only shows a profile README from that repo.
-2. Edit `theme.config.json`: your name and two short lines for the centre screen (up to 21 characters each), how many trophies go on the shelf (up to 12), and your city.
+2. Edit `theme.config.json`: your name and two short lines for the centre screen (up to 21 characters each), how many trophies go on the shelf (up to 12), and your city. Set `"style"` to `"cinematic"` (the default) or `"pixel"` for the pixel-art cave.
 3. In this README, replace `MJdevs2710` with your username and swap in your own about, missions and case files.
 4. Go to **Actions → Bat cave + skyline → Run workflow**. Your cave and skyline will appear in about 30 seconds and redraw every 12 hours.
 
