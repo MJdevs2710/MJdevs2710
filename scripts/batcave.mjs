@@ -15,7 +15,7 @@ const C = {
 };
 
 export function batcave(cal, cfg, USER) {
-  const W = 320, H = 180;
+  const W = 400, H = 200;
   const R = rng(4242);
   const F3 = FONTS.small, F5 = FONTS.big;
   const bg = new Raster(W, H), fg = new Raster(W, H);
@@ -29,7 +29,8 @@ export function batcave(cal, cfg, USER) {
   for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
     const lm = Math.max(0, 1 - Math.hypot((x - 160) / 1.8, (y - 108) * 1.2) / 110);
     const lw = Math.max(0, 1 - Math.hypot(x - 272, y - 48) / 60);
-    let v = 0.2 + lm * 0.5 + lw * 0.25 + (n1(x, y) - 0.5) * 0.4 + (n2(x, y) - 0.5) * 0.15;
+    const ll = Math.max(0, 1 - Math.hypot((x - 360) * 1.2, y - 60) / 60);
+    let v = 0.2 + lm * 0.5 + lw * 0.25 + ll * 0.3 + (n1(x, y) - 0.5) * 0.4 + (n2(x, y) - 0.5) * 0.15;
     if (shaft(x + 0.5, y + 0.5)) v += 0.14;
     v *= 0.5 + 0.5 * Math.min(1, Math.min(x, W - x) / 60);
     bg.set(x, y, ramp[dpick(v, x, y, ramp.length)]);
@@ -41,7 +42,7 @@ export function batcave(cal, cfg, USER) {
     bg.set(x, y, [C.void, C.r0, C.r1, C.r2][dpick(v, x, y, 4)]);
   }
   bg.rect(0, 164, W, 1, C.r3);
-  for (let i = 0; i < 16; i++) bg.ellipse(R() * W, 168 + R() * 10, 1.5 + R() * 2.5, 1 + R(), { fill: C.r2, hi: C.r3, lo: C.r0 });
+  for (let i = 0; i < 22; i++) bg.ellipse(R() * W, 168 + R() * 28, 1.5 + R() * 2.5, 1 + R(), { fill: C.r2, hi: C.r3, lo: C.r0 });
 
   // ceiling and stalactites
   bg.rect(0, 0, W, 3, C.void);
@@ -159,10 +160,82 @@ export function batcave(cal, cfg, USER) {
   bg.set(281, 34, '#d8ccaa'); bg.set(285, 37, '#d8ccaa'); bg.set(282, 38, '#d8ccaa');
   [[256, 30], [262, 40], [292, 52], [250, 46], [276, 26], [266, 32]].forEach(([x, y]) => bg.set(x, y, '#dfe7ff'));
   [[259, 36], [288, 46], [270, 40], [254, 52]].forEach(([x, y], i) => mid.push(`<rect class="tw" style="animation-delay:-${i * 0.8}s" x="${x}" y="${y}" width="1" height="1" fill="#ffffff"/>`));
-  // a tiny red-and-blue web-slinger swinging past the window
-  defs.push(`<clipPath id="win"><circle cx="${WX}" cy="${WY}" r="${WR}"/></clipPath>`);
-  mid.push(`<g clip-path="url(#win)"><g transform="translate(264 30)"><g><animateTransform attributeName="transform" type="rotate" values="42;-42;42" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="2.8s" repeatCount="indefinite"/>` +
-    `<line x1="0" y1="0" x2="0" y2="15" stroke="#dfe7ff" stroke-width=".4"/><rect x="-1" y="15" width="2" height="2" fill="#e23636"/><rect x="-1" y="17" width="2" height="2" fill="#1f4fd6"/><rect x="-1" y="19" width="1" height="1" fill="#e23636"/><rect x="0" y="19" width="1" height="1" fill="#e23636"/></g></g></g>`);
+  // the signal over the city, seen through the cave mouth
+  const inWin = (x, y) => Math.hypot(x + 0.5 - WX, y + 0.5 - WY) <= WR;
+  const beam = pip([[266, 77], [270, 77], [265, 33], [251, 30]]);
+  for (let y = 26; y < 78; y++) for (let x = 246; x < 274; x++) if (inWin(x, y) && beam(x + 0.5, y + 0.5) && ((x + y) & 1) === 0) bg.set(x, y, '#3b4f8a');
+  bg.ellipse(258, 31, 7, 3.5, { fill: '#e9dc9a', hi: '#fff4c2' });
+  bg.sprite(256, 30, ['.o.o.', 'ooooo', 'o.o.o'], { o: '#2b2a1e' });
+  mid.push(`<ellipse class="flick" cx="258" cy="31" rx="9" ry="5" fill="#fff4c2" opacity=".25" filter="url(#glow)"/>`);
+
+  // ---------- gadget wall: batarangs, utility belt, grappling gun ----------
+  bg.box(64, 64, 48, 27, { fill: '#141a34', hi: '#222b52', lo: '#0b0f22', line: C.line });
+  for (let y = 67; y < 89; y += 4) for (let x = 67; x < 110; x += 4) bg.set(x, y, '#0a0d1e');
+  const rang = batPoly(0.16);
+  [[72, 71], [88, 70], [104, 71]].forEach(([x, y]) => bg.poly(rang.map(([a, b]) => [a + x, b + y]), { fill: '#59648f', hi: '#a9b4dc', lo: '#2c3460', line: C.line }));
+  bg.rect(67, 80, 34, 2, '#9c7a1c');
+  bg.rect(67, 80, 34, 1, '#d9b23a');
+  for (const x of [68, 75, 89, 96]) bg.box(x, 82, 5, 4, { fill: '#c9a227', hi: '#f0d060', lo: '#8a6a12', line: C.line });
+  bg.box(82, 79, 5, 4, { fill: '#e8c24a', hi: '#fff0a0', lo: '#9c7a1c', line: C.line });
+  bg.box(103, 79, 7, 3, { fill: '#2b3152', hi: '#4a5585', line: C.line });
+  bg.box(104, 82, 2, 5, { fill: '#2b3152', hi: '#4a5585', line: C.line });
+  bg.line(110, 79, 110, 76, '#a9b4dc'); bg.set(109, 76, '#a9b4dc'); bg.set(111, 76, '#a9b4dc');
+
+  // ---------- trophy corner: case-files board, robot T-rex, giant penny ----------
+  bg.rect(359, 3, 1, 9, C.r3);
+  bg.box(353, 12, 13, 4, { fill: '#2b3152', hi: '#4a5585', line: C.line });
+  bg.rect(356, 16, 7, 1, '#ffe7a0');
+  for (let y = 17; y < 58; y++) for (let x = 330; x < 392; x++) if (Math.abs(x - 359.5) < 2 + (y - 17) * 0.55 && ((x + y) & 1) === 0 && bg.get(x, y) !== C.r3) bg.set(x, y, '#2e3560');
+  bg.box(328, 22, 62, 34, { fill: '#5e4127', hi: '#7a5634', lo: '#3d2a18', line: C.line });
+  for (let i = 0; i < 70; i++) bg.set(330 + Math.floor(R() * 58), 24 + Math.floor(R() * 30), R() < 0.5 ? '#6e4c2e' : '#4c3420');
+  const cards = [[332, 25, 11, 13, 'w'], [349, 31, 12, 10, 'w'], [366, 25, 11, 13, 'w'], [333, 41, 10, 12, 'g'], [376, 40, 11, 13, 'p'], [352, 44, 14, 9, 'w']];
+  const cardCol = { w: ['#e8e4d8', '#b8b2a2'], g: ['#3bb54a', '#24803a'], p: ['#7b4bb8', '#52307e'] };
+  const centre = ([x, y, w, h]) => [x + Math.floor(w / 2), y + Math.floor(h / 2)];
+  for (const [a, b] of [[0, 1], [1, 2], [1, 5], [3, 5], [4, 5], [0, 3]]) {
+    const [x0, y0] = centre(cards[a]), [x1, y1] = centre(cards[b]);
+    bg.line(x0, y0, x1, y1, '#d42a2a');
+  }
+  for (const [x, y, w, h, k] of cards) {
+    bg.box(x, y, w, h, { fill: cardCol[k][0], lo: cardCol[k][1], line: C.line });
+    if (k === 'w') { bg.ellipse(x + w / 2, y + h / 2 - 1, 2, 2, { fill: '#3a3a44' }); bg.rect(x + Math.floor(w / 2) - 3, y + h - 4, 6, 2, '#3a3a44'); }
+    bg.set(x + Math.floor(w / 2), y, '#e23636');
+  }
+  bg.sprite(336, 44, ['##.', '..#', '.#.', '...', '.#.'], { '#': '#ffffff' });
+  bg.text(380, 44, 'J', F3, '#7ee07e');
+  const rex = { fill: '#1b2035', hi: '#38426c', lo: '#0c0f1e', line: C.line };
+  bg.poly([[384, 100], [402, 90], [402, 112], [386, 118]], rex);
+  bg.poly([[376, 122], [386, 122], [388, 158], [380, 158]], { fill: '#121628', hi: '#262e50', line: C.line });
+  bg.box(376, 157, 15, 4, { fill: '#121628', hi: '#262e50', line: C.line });
+  bg.ellipse(372, 108, 18, 15, rex);
+  bg.poly([[350, 92], [364, 86], [374, 100], [360, 106]], rex);
+  bg.poly([[330, 80], [344, 71], [360, 73], [365, 83], [361, 91], [336, 91]], rex);
+  bg.rect(336, 92, 22, 3, '#3a0d16');
+  bg.poly([[338, 95], [358, 95], [356, 102], [342, 100]], rex);
+  for (let x = 338; x < 358; x += 3) { bg.set(x, 92, '#e8e4d8'); bg.set(x + 1, 94, '#e8e4d8'); }
+  bg.set(333, 80, C.line);
+  bg.line(356, 104, 350, 110, '#38426c'); bg.line(350, 110, 352, 113, '#38426c');
+  bg.ellipse(368, 124, 9, 11, rex);
+  bg.poly([[361, 130], [373, 130], [371, 157], [363, 157]], rex);
+  bg.box(356, 156, 17, 5, rex);
+  for (const x of [356, 360, 364]) bg.set(x - 1, 160, '#e8e4d8');
+  bg.box(330, 161, 70, 3, { fill: C.metal, hi: C.metalHi, line: C.line });
+  top.push(`<rect class="eye" x="349" y="77" width="2" height="1" fill="#ff3b3b"/>`);
+  const copper = { fill: '#b8733a', hi: '#e8a868', lo: '#7a4520', line: C.line };
+  bg.box(384, 158, 13, 4, { fill: C.metal, hi: C.metalHi, line: C.line });
+  bg.ellipse(390, 146, 9, 12, copper);
+  bg.ellipse(390, 146, 6, 9, { fill: '#b8733a', hi: '#7a4520', lo: '#e8a868' });
+  bg.text(389, 144, '1', F3, '#6a3a18');
+  top.push(`<g class="sp" style="animation-delay:-1.7s" fill="#fff3d0"><rect x="385" y="136" width="1" height="3"/><rect x="384" y="137" width="3" height="1"/></g>`);
+
+  // ---------- the car on its turntable (floor) ----------
+  bg.ellipse(120, 191, 60, 6, { fill: '#1b2142', hi: '#2e3870', lo: '#0f1430', line: C.line });
+  for (let y = 179; y < 191; y++) for (let x = 24; x < 70; x++) if (Math.abs(y - 185) < 1 + (70 - x) * 0.14 && ((x + y) & 1) === 0) bg.set(x, y, '#2c3358');
+  const ring = [0, 1, 2, 3].map((f) => {
+    const r = new Raster(W, H);
+    for (let k = 0; k < 64; k++) if ((k + f) % 4 < 2) { const a = (k / 64) * Math.PI * 2; r.set(Math.round(120 + Math.cos(a) * 57), Math.round(191 + Math.sin(a) * 5), C.blue); }
+    return r;
+  });
+  mid.push(frames(ring, 0.6));
 
   // ---------- three monitors ----------
   const mon = (x, y, w, h) => { bg.box(x, y, w, h, { fill: '#1b2246', hi: '#2e3a70', lo: '#10152e', line: C.line }); bg.rect(x + 2, y + 2, w - 4, h - 4, C.scr); };
@@ -280,10 +353,36 @@ export function batcave(cal, cfg, USER) {
     r.ellipse(PX + 14, 121 + b, 2.6, 2.2, hood);
     return r;
   });
-  fg.sprite(254, 120, ['wccccw..', 'wwwwwWww', 'wrrrrW.w', 'wwwwwWww', 'wwwwwW..', '.WWWW...'], { w: '#d9e3f2', W: '#8fa0bd', c: '#4a2c1a', r: C.red });
-  fg.sprite(266, 120, ['...yyy.', '...yeyO', 'y..yyyO', 'yyyyyy.', 'yYYYYy.', '.yyyy..'], { y: C.neon, Y: '#d9a816', e: '#111111', O: '#ff8a3d' });
-  fg.sprite(280, 117, ['.rrr.', 'rWrWr', '.rrr.', 'brrrb', 'brrrb', '.b.b.', '.b.b.', 'rr.rr'], { r: C.red, W: '#ffffff', b: '#1f4fd6' });
-  fg.rect(279, 125, 7, 1, C.metalDk);
+  // the butler's tea tray
+  fg.ellipse(257, 125, 8, 1.5, { fill: '#b9c2d6', hi: '#e6ecf7', line: C.line });
+  fg.rect(252, 123, 8, 1, '#d9e0ee');
+  fg.sprite(253, 119, ['wwwww.', 'wWwwwh', 'wWwwwh', '.WWW..'], { w: '#eef2fa', W: '#aab4c8', h: '#eef2fa' });
+  fg.sprite(253, 119, ['ccccc.'], { c: '#7a4a2a' });
+  fg.sprite(268, 120, ['...yyy.', '...yeyO', 'y..yyyO', 'yyyyyy.', 'yYYYYy.', '.yyyy..'], { y: C.neon, Y: '#d9a816', e: '#111111', O: '#ff8a3d' });
+  // the bust that hides the switch to the cave
+  const marble = { fill: '#cfc9bb', hi: '#f0ebe0', lo: '#8f897c', line: C.line };
+  fg.box(286, 121, 11, 5, marble);
+  fg.ellipse(291.5, 116, 3.5, 4.5, marble);
+  fg.rect(289, 112, 5, 1, '#8f897c');
+  top.push(`<rect class="blink" x="291" y="110" width="1" height="1" fill="#ff3b3b"/>`);
+  // the car: low armoured body, fins, canopy, glowing headlight
+  const car = { fill: '#0d1020', hi: '#2a3460', lo: '#05070e', line: C.line };
+  fg.poly([[176, 168], [181, 166], [182, 180], [176, 182]], car);
+  fg.poly([[70, 186], [78, 181], [104, 177], [120, 171], [142, 170], [160, 174], [170, 167], [175, 167], [176, 184], [168, 188], [74, 189]], car);
+  fg.poly([[112, 176], [124, 171], [140, 171], [148, 175]], { fill: '#1c3462', hi: '#4a74c0', line: C.line });
+  fg.line(86, 183, 160, 181, '#1d2546');
+  fg.line(96, 180, 108, 179, '#3d4a85');
+  fg.ellipse(90, 189, 7, 7, { fill: '#05060b', hi: '#1d2442', line: C.line });
+  fg.ellipse(90, 189, 3, 3, { fill: '#2e3866', hi: '#5a6aa8' });
+  fg.ellipse(154, 188, 8, 8, { fill: '#05060b', hi: '#1d2442', line: C.line });
+  fg.ellipse(154, 188, 3.5, 3.5, { fill: '#2e3866', hi: '#5a6aa8' });
+  fg.rect(70, 184, 3, 2, '#fff1a6');
+  fg.sprite(126, 178, ['y.....y', 'yy.y.yy', '.yyyyy.'], { y: '#b38b1d' });
+  const flame = [['ywo', 'wwyo', 'ywo'], ['yo', 'wyoo', 'ywyo.o', 'yo'], ['ywoo', 'wyo', 'yo']].map((sp) => {
+    const r = new Raster(W, H);
+    r.sprite(177, 176, sp, { w: '#fffbe0', y: C.neon, o: '#ff8a3d' });
+    return r;
+  });
   const steam = [[[257, 117], [256, 115], [257, 113]], [[258, 116], [257, 114], [258, 112]], [[256, 116], [257, 114], [256, 112]]].map((p) => {
     const r = new Raster(W, H);
     p.forEach(([x, y]) => r.set(x, y, '#9fb0c8'));
@@ -295,9 +394,14 @@ export function batcave(cal, cfg, USER) {
   const BAT_DN = ['....o.o....', '...ooooo...', '..ooooooo..', '.ooo...ooo.', 'oo.......oo'];
   const batFrames = [BAT_UP, BAT_DN].map((sp) => { const r = new Raster(11, 5); r.sprite(0, 0, sp, { o: '#020309' }); return r; });
   for (let i = 0; i < 4; i++) {
-    const y = 10 + R() * 26, ltr = i % 2 === 0, dur = (7 + R() * 6).toFixed(1);
+    const y = 10 + R() * 26, ltr = i % 2 === 0, dur = (8 + R() * 6).toFixed(1);
     const [x0, x1] = ltr ? [-20, W + 10] : [W + 10, -20];
     top.push(`<g><animateMotion path="M${x0} ${y.toFixed(0)}C${W * 0.3} ${(y - 8).toFixed(0)} ${W * 0.7} ${(y + 10).toFixed(0)} ${x1} ${(y + 2).toFixed(0)}" dur="${dur}s" begin="-${(R() * 10).toFixed(1)}s" repeatCount="indefinite"/>${frames(batFrames, 0.28)}</g>`);
+  }
+  // a swarm streaming out of the cave mouth every few seconds
+  for (let i = 0; i < 6; i++) {
+    const ey = 6 + R() * 40, dur = 9, start = (i * 0.35).toFixed(2);
+    top.push(`<g opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.02;.4;.42;1" dur="${dur}s" begin="${start}s" repeatCount="indefinite"/><animateMotion path="M266 46C230 ${(30 + R() * 20).toFixed(0)} 160 ${ey.toFixed(0)} -30 ${(ey - 6).toFixed(0)}" keyPoints="0;1;1" keyTimes="0;.42;1" calcMode="linear" dur="${dur}s" begin="${start}s" repeatCount="indefinite"/>${frames(batFrames, 0.22)}</g>`);
   }
 
   // water drips
@@ -308,13 +412,14 @@ export function batcave(cal, cfg, USER) {
 
   // captions on the floor
   const loc = String(cfg.location || '').toUpperCase();
-  if (loc) bg.text(6, 172, `SECTOR ${loc}`, F3, C.r4);
+  if (loc) bg.text(6, 192, `SECTOR ${loc}`, F3, C.r4);
   const handle = `@${USER}`.toUpperCase();
-  bg.text(W - 6 - textWidth(handle, F3), 172, handle, F3, C.r4);
+  bg.text(W - 6 - textWidth(handle, F3), 192, handle, F3, C.r4);
 
   defs.push(`<filter id="glow" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>`);
   defs.push(`<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>`);
-  const glows = `<ellipse cx="160" cy="104" rx="90" ry="34" fill="#3aa0ff" opacity=".09" filter="url(#soft)"/><circle cx="272" cy="48" r="32" fill="#9fb8ff" opacity=".07" filter="url(#soft)"/><ellipse cx="96" cy="46" rx="40" ry="16" fill="#ffd43b" opacity=".06" filter="url(#soft)"/>`;
+  const glows = `<ellipse cx="160" cy="104" rx="90" ry="34" fill="#3aa0ff" opacity=".09" filter="url(#soft)"/><circle cx="272" cy="48" r="32" fill="#9fb8ff" opacity=".07" filter="url(#soft)"/><ellipse cx="96" cy="46" rx="40" ry="16" fill="#ffd43b" opacity=".06" filter="url(#soft)"/>` +
+    `<ellipse cx="359" cy="40" rx="30" ry="24" fill="#ffd98a" opacity=".07" filter="url(#soft)"/><ellipse cx="52" cy="186" rx="28" ry="8" fill="#fff1a6" opacity=".12" filter="url(#soft)"/>`;
 
   const css = `.flick{animation:fl 7s infinite}@keyframes fl{0%,61%,64%,67%,100%{opacity:1}62%{opacity:.15}65%{opacity:.3}}` +
     `.blink{animation:bl 1.4s steps(1) infinite}@keyframes bl{0%,100%{opacity:1}50%{opacity:.1}}` +
@@ -326,5 +431,5 @@ export function batcave(cal, cfg, USER) {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${W} ${H}" width="${W * 3}" height="${H * 3}" shape-rendering="crispEdges" role="img" aria-label="${esc(cfg.name || USER)} coding in a pixel-art bat cave">` +
     `<title>${esc(cfg.name || USER)}</title><style>${css}</style><defs>${defs.join('')}</defs>` +
-    bg.emit() + glows + mid.join('') + fg.emit() + frames(elbows, 0.36) + frames(steam, 0.9) + top.join('') + `</svg>`;
+    bg.emit() + glows + mid.join('') + fg.emit() + frames(elbows, 0.36) + frames(steam, 0.9) + frames(flame, 0.18) + top.join('') + `</svg>`;
 }

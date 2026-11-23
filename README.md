@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Pixel-art bat cave: a hooded developer typing at three glowing monitors, a neon bat sign, a shelf of hackathon trophies and a waterfall"/>
+  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Pixel-art bat cave: a hooded developer at three glowing monitors, a neon bat sign, a shelf of hackathon trophies, a car on a turntable, a robot T-rex, a giant penny and a case-files board"/>
 </p>
 
 <h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
