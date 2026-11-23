@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source srcset="assets/batcave.webp" type="image/webp"/>
-    <img src="assets/batcave.gif" width="100%" alt="A dark, cinematic bat cave: a silhouette working at glowing monitors under industrial work lights"/>
+    <source srcset="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/main/assets/batcave.webp" type="image/webp"/>
+    <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/main/assets/batcave.gif" width="100%" alt="A dark, cinematic bat cave: a silhouette working at glowing monitors under industrial work lights"/>
   </picture>
 </p>
 
