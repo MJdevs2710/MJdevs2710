@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/batcave.gif" width="100%" alt="A dark, cinematic bat cave: a silhouette working at glowing monitors under industrial work lights"/>
+  <picture>
+    <source srcset="assets/batcave.webp" type="image/webp"/>
+    <img src="assets/batcave.gif" width="100%" alt="A dark, cinematic bat cave: a silhouette working at glowing monitors under industrial work lights"/>
+  </picture>
 </p>
 
 <h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
