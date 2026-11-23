@@ -1,36 +1,26 @@
-[![MasterHead](https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif)](https://github.com/MJdevs2710)
-
-<h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
-<h3 align="center">Software Developer · Full-Stack · AI from Mumbai, India</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Moksh Jhaveri's cave workstation"/>
+</p>
 
 <p align="center">
-  <a href="https://github.com/MJdevs2710"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2600&pause=900&color=36BCF7&center=true&vCenter=true&width=640&lines=Developer+%40+Sitepace;12x+Hackathon+Winner;OpenAI+Codex+Hackathon+Winner;Ex-SDE+%40+Smowcode;Ex-DB+Engineer+%40+Datalis" alt="Typing SVG"/></a>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2600&pause=900&color=FFD43B&center=true&vCenter=true&width=640&lines=Developer+%40+Sitepace;12x+Hackathon+Winner;OpenAI+Codex+Hackathon+Winner;Ex-SDE+%40+Smowcode;Ex-DB+Engineer+%40+Datalis" alt="Developer @ Sitepace · 12x Hackathon Winner · OpenAI Codex Hackathon Winner"/>
 </p>
 
-<img align="right" alt="Coding" width="400" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif"/>
+<p align="center">
+  <a href="mailto:mokshjhaveri554@gmail.com"><img src="https://img.shields.io/badge/Email-E23636?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://github.com/MJdevs2710"><img src="https://img.shields.io/badge/GitHub-0B0F1A?style=for-the-badge&logo=github&logoColor=FFD43B"/></a>
+  <img src="https://komarev.com/ghpvc/?username=MJdevs2710&label=Visitors%20to%20the%20cave&color=0b0f1a&style=for-the-badge" alt="Profile views"/>
+</p>
 
-<p align="left"><img src="https://komarev.com/ghpvc/?username=MJdevs2710&label=Profile%20views&color=0e75b6&style=flat" alt="MJdevs2710"/></p>
+## 🦇 Who's in the cave
 
 - 🏆 **12× Hackathon Winner**, including the **OpenAI Codex** hackathon
-
 - 💼 Developer at **Sitepace**
-
 - 🛠️ Previously SDE at **Smowcode** and DB Engineer at **Datalis**
+- 🌃 Mostly ships after dark. Ask me about **full-stack products, AI agents and hackathons**
+- 📫 Signal me at **mokshjhaveri554@gmail.com**
 
-- 💬 Ask me about **full-stack products, AI agents and hackathons**
-
-- 📫 How to reach me **mokshjhaveri554@gmail.com**
-
-<p align="left">
-  <a href="mailto:mokshjhaveri554@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-  <a href="https://github.com/MJdevs2710"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
-</p>
-
-<br clear="right"/>
-
----
-
-## Experience
+## 🗺️ Missions
 
 | Where | Role |
 |---|---|
@@ -38,19 +28,15 @@
 | **Smowcode** | Software Development Engineer |
 | **Datalis** | Database Engineer |
 
----
-
-## Tech stack
+## 🧰 Utility belt
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,python,react,nextjs,nodejs,express&perline=7" alt="Languages and frameworks"/>
+  <img src="https://skillicons.dev/icons?i=ts,js,python,react,nextjs,nodejs,express&perline=7" alt="TypeScript, JavaScript, Python, React, Next.js, Node.js, Express"/>
   <br/>
-  <img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb,tailwind,docker,git,vercel&perline=7" alt="Data and tools"/>
+  <img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb,tailwind,docker,git,vercel&perline=7" alt="MySQL, Postgres, MongoDB, Tailwind, Docker, Git, Vercel"/>
 </p>
 
----
-
-## Featured projects
+## 🗂️ Case files
 
 Hackathon projects built with my team.
 
@@ -59,7 +45,7 @@ Hackathon projects built with my team.
 <td width="50%" valign="top">
 
 ### [Forge](https://forge-surfaces-mauve.vercel.app/)
-`Winner · Codex Community Hackathon`
+`🏆 Winner · Codex Community Hackathon`
 
 Autonomous engineering org in a box. A swarm of Codex agents builds the product in parallel, an eval gate drops the weak attempts, and the best one deploys itself and self-heals.
 
@@ -69,7 +55,7 @@ Autonomous engineering org in a box. A swarm of Codex agents builds the product 
 <td width="50%" valign="top">
 
 ### EasyOffRoad
-`Winner · Hawkathon 2026`
+`🏆 Winner · Hawkathon 2026`
 
 Perception for off-road autonomous vehicles. Semantic segmentation of desert terrain using Mask2Former on a Swin-Large backbone, with test-time augmentation.
 
@@ -81,7 +67,7 @@ Perception for off-road autonomous vehicles. Semantic segmentation of desert ter
 <td width="50%" valign="top">
 
 ### [Fincognia](https://fincogina.vercel.app/)
-`Winner · Hackxios 2K25`
+`🏆 Winner · Hackxios 2K25`
 
 Agentic finance co-pilot for gig workers. Predicts liquidity risk with 85% accuracy and acts before an EMI default.
 
@@ -91,7 +77,7 @@ Agentic finance co-pilot for gig workers. Predicts liquidity risk with 85% accur
 <td width="50%" valign="top">
 
 ### EcoSort AI
-`Winner · Hackniche 4.0`
+`🏆 Winner · Hackniche 4.0`
 
 Real-time computer vision that identifies and sorts plastics.
 
@@ -103,7 +89,7 @@ Real-time computer vision that identifies and sorts plastics.
 <td width="50%" valign="top">
 
 ### [LitAgent](https://litagent.vercel.app/)
-`2nd Runner-Up · Hackanova 5.0`
+`🥈 2nd Runner-Up · Hackanova 5.0`
 
 Multi-agent research assistant. A 15-step pipeline over Semantic Scholar, arXiv and PubMed, with an LLM council that cross-checks claims.
 
@@ -113,7 +99,7 @@ Multi-agent research assistant. A 15-step pipeline over Semantic Scholar, arXiv 
 <td width="50%" valign="top">
 
 ### [Equilibrium.ai](https://github.com/MEGH06/Equilibrium.io)
-`Runner-Up · Datathon 2026`
+`🥈 Runner-Up · Datathon 2026`
 
 Systemic-risk simulation for financial networks.
 
@@ -124,29 +110,37 @@ Systemic-risk simulation for financial networks.
 </table>
 
 <details>
-<summary><b>More projects</b></summary>
+<summary><b>More case files</b></summary>
 <br/>
 
 - [**CyberSecure**](https://redact-cybersecure-tau.vercel.app/) (team project): intrusion detection over 1M+ network logs at 99%+ recall, with live PCAP capture, anomaly dashboards and Merkle-tree logging. Scikit-learn, Next.js, Groq
 
 </details>
 
+## 🕸️ Night patrol
+
+Every building is one day of my GitHub activity. Busier days rise higher and light up more windows, and a friendly neighbourhood web-slinger swings across the rooftops. Redrawn every 12 hours.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/skyline.svg" width="100%" alt="Contribution graph drawn as a 3D night skyline"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=MJdevs2710&show_icons=true&hide_border=true&bg_color=0b0f1a&title_color=ffd43b&icon_color=e23636&text_color=c9d4f2" height="165" alt="GitHub stats"/>
+  <img src="https://streak-stats.demolab.com?user=MJdevs2710&hide_border=true&background=0b0f1a&ring=e23636&fire=ffd43b&currStreakNum=ffffff&sideNums=ffd43b&currStreakLabel=ffd43b&sideLabels=c9d4f2&dates=8f9cc6&stroke=1f2a44" height="165" alt="Contribution streak"/>
+</p>
+
 ---
 
-## Contributions
+<details>
+<summary><b>🦇 Want this theme for your own profile?</b></summary>
+<br/>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph-dark.svg"/>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph.svg"/>
-    <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/arcade/pacman-contribution-graph-dark.svg" width="100%" alt="Pac-Man contribution graph"/>
-  </picture>
-</p>
+1. Click **Use this template** at the top of [this repo](https://github.com/MJdevs2710/MJdevs2710) and name your new repo **exactly your GitHub username**. GitHub only shows a profile README from that repo.
+2. Edit `theme.config.json` with your name, tagline, city and the four terminal lines on the centre screen.
+3. In this README, replace `MJdevs2710` with your username and swap in your own about, missions and case files.
+4. Go to **Actions → Bat cave + skyline → Run workflow**. Your cave and skyline will appear in about 30 seconds and redraw every 12 hours.
 
-## GitHub stats
+To preview locally, run `node scripts/generate.mjs --demo`. No installs are needed, and the images go to `dist/`.
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=MJdevs2710&show_icons=true&theme=tokyonight&hide_border=true" height="165" alt="GitHub stats"/>
-  <br/>
-  <img src="https://streak-stats.demolab.com?user=MJdevs2710&theme=tokyonight&hide_border=true" alt="Streak"/>
-</p>
+</details>
