@@ -1,12 +1,7 @@
 {
   "username": "MJdevs2710",
   "name": "Moksh Jhaveri",
-  "tagline": "Developer @ Sitepace · 12x Hackathon Winner",
-  "location": "Mumbai",
-  "terminal": [
-    "> whoami",
-    "full-stack dev · ai builder · night owl",
-    "> git push origin main --force-of-will",
-    "deployed. the city sleeps, the code ships."
-  ]
+  "screen": ["DEV @ SITEPACE", "12X HACKATHON WINS"],
+  "trophies": 12,
+  "location": "Mumbai"
 }

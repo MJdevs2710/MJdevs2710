@@ -1,9 +1,12 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Moksh Jhaveri's cave workstation"/>
+  <img src="https://raw.githubusercontent.com/MJdevs2710/MJdevs2710/output/batcave.svg" width="100%" alt="Pixel-art bat cave: a hooded developer typing at three glowing monitors, a neon bat sign, a shelf of hackathon trophies and a waterfall"/>
 </p>
 
+<h1 align="center">Hi 👋, I'm Moksh Jhaveri</h1>
+<h3 align="center">Developer · Full-Stack · AI, from Mumbai, India</h3>
+
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2600&pause=900&color=FFD43B&center=true&vCenter=true&width=640&lines=Developer+%40+Sitepace;12x+Hackathon+Winner;OpenAI+Codex+Hackathon+Winner;Ex-SDE+%40+Smowcode;Ex-DB+Engineer+%40+Datalis" alt="Developer @ Sitepace · 12x Hackathon Winner · OpenAI Codex Hackathon Winner"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=16&duration=2600&pause=900&color=FFD43B&center=true&vCenter=true&width=640&lines=Developer+%40+Sitepace;12x+Hackathon+Winner;OpenAI+Codex+Hackathon+Winner;Ex-SDE+%40+Smowcode;Ex-DB+Engineer+%40+Datalis" alt="Developer @ Sitepace · 12x Hackathon Winner · OpenAI Codex Hackathon Winner"/>
 </p>
 
 <p align="center">
@@ -137,10 +140,12 @@ Every building is one day of my GitHub activity. Busier days rise higher and lig
 <br/>
 
 1. Click **Use this template** at the top of [this repo](https://github.com/MJdevs2710/MJdevs2710) and name your new repo **exactly your GitHub username**. GitHub only shows a profile README from that repo.
-2. Edit `theme.config.json` with your name, tagline, city and the four terminal lines on the centre screen.
+2. Edit `theme.config.json`: your name and two short lines for the centre screen (up to 21 characters each), how many trophies go on the shelf (up to 12), and your city.
 3. In this README, replace `MJdevs2710` with your username and swap in your own about, missions and case files.
 4. Go to **Actions → Bat cave + skyline → Run workflow**. Your cave and skyline will appear in about 30 seconds and redraw every 12 hours.
 
 To preview locally, run `node scripts/generate.mjs --demo`. No installs are needed, and the images go to `dist/`.
 
 </details>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&section=footer&height=110&color=0:0b0f1a,60:1d2650,100:e23636" width="100%" alt=""/>
